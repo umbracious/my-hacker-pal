@@ -42,11 +42,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#f5f5f5', // Light gray background
     },
     title: {
-        fontSize: 28, // Large text for title
-        fontWeight: 'bold',
-        color: '#333', // Dark gray color
-        marginBottom: 8, // Adds space below the title
-    },
+        fontSize: 30, // Larger font size
+        fontWeight: '700', // Bold
+        color: '#333', // Dark gray text
+        top: 40,
+        position: 'absolute',
+        padding: 50,
+        textAlign: 'center',
+        
+      },
     subheader: {
         textAlign: 'center', // Center text
         fontSize: 18, // Slightly smaller than title
