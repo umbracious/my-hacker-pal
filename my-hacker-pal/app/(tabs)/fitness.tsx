@@ -45,7 +45,7 @@ const FitnessForm: React.FC = () => {
             <Text style={styles.title}>Fitness Form</Text>
 
             <TextInput
-                placeholder="Name"
+                placeholder="Full Name"
                 value={name}
                 onChangeText={setName}
                 style={styles.form_style}
@@ -54,6 +54,21 @@ const FitnessForm: React.FC = () => {
                 placeholder="Age"
                 value={age}
                 onChangeText={setAge}
+                keyboardType="numeric"
+                style={styles.form_style}
+            />
+                        <TextInput
+                placeholder="Height (cm)"
+                value={size}
+                onChangeText={setSize}
+                keyboardType="numeric"
+                style={styles.form_style}
+            />
+
+            <TextInput
+                placeholder="Weight (kg)"
+                value={size}
+                onChangeText={setSize}
                 keyboardType="numeric"
                 style={styles.form_style}
             />
@@ -70,7 +85,7 @@ const FitnessForm: React.FC = () => {
             </Picker>
 
             <TextInput
-                placeholder="Size (cm)"
+                placeholder="Daily calorie goal (kcal)"
                 value={size}
                 onChangeText={setSize}
                 keyboardType="numeric"
