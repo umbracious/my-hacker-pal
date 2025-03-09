@@ -35,6 +35,7 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         padding: 50,
         textAlign: 'center',
-        
       },
     subheader: {
         textAlign: 'center', // Center text
