@@ -1,16 +1,46 @@
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Picker } from '@react-native-picker/picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
+
 
 const FitnessForm: React.FC = () => {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [goal, setGoal] = useState('Lose Weight'); // Default goal
     const [size, setSize] = useState('');
+    const[weight,setWeight] = useState('');
+
+    useEffect(() => {
+        const loadData = async() =>{
+            try {
+                const storedName = await AsyncStorage.getItem('name');
+                const storedAge = await AsyncStorage.getItem('age');
+                const storedGoal = await AsyncStorage.getItem('goal');
+                const storedSize = await AsyncStorage.getItem('size');
+
+                if(storedName)setName(storedName);
+                if(storedAge)setAge(storedAge);
+                if(storedGoal)setGoal(storedGoal);
+                if(storedSize)setSize(storedSize);
+
+            } 
+            catch (error) {
+                console.log("Error loading data");
+            }
+        };
+        loadData();
+    }, []);
+
+
+
 
     const handleSubmit = () => {
-        console.log('Form submitted:', { name, age, goal, size });
-        alert(`Form submitted!\nName: ${name}\nAge: ${age}\nGoal: ${goal}\nSize: ${size}`);
+        console.log('Form submitted:', { name, age, goal, size, weight });
+        alert(`Form submitted!\nName: ${name}\nAge: ${age}\nGoal: ${goal}\nSize: ${size}\nWeight: ${weight}`);
     };
 
     const styles = StyleSheet.create({
@@ -57,7 +87,7 @@ const FitnessForm: React.FC = () => {
                 keyboardType="numeric"
                 style={styles.form_style}
             />
-                        <TextInput
+            <TextInput
                 placeholder="Height (cm)"
                 value={size}
                 onChangeText={setSize}
@@ -67,8 +97,8 @@ const FitnessForm: React.FC = () => {
 
             <TextInput
                 placeholder="Weight (kg)"
-                value={size}
-                onChangeText={setSize}
+                value={weight}
+                onChangeText={setWeight}
                 keyboardType="numeric"
                 style={styles.form_style}
             />
@@ -84,13 +114,7 @@ const FitnessForm: React.FC = () => {
                 <Picker.Item label="Mantain Weight" value="Mantain Weight" />
             </Picker>
 
-            <TextInput
-                placeholder="Daily calorie goal (kcal)"
-                value={size}
-                onChangeText={setSize}
-                keyboardType="numeric"
-                style={styles.form_style}
-            />
+       
 
             <Button title="Submit" onPress={handleSubmit} />
         </View>
