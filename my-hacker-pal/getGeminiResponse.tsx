@@ -1,4 +1,4 @@
-import Reac, {useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 
 const API_KEY = 'AIzaSyCKQ-wwhZitA5YvLUjJXJ8GnVnMeVHr5hQ';
 
