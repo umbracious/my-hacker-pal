@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 
-const API_KEY = 'AIzaSyCKQ-wwhZitA5YvLUjJXJ8GnVnMeVHr5hQ';
+// Insert API Key for local testing, will add a way to securely retrieve this from a DB later
+// const API_KEY = 'INSERT API KEY HERE';
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
